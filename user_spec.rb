@@ -13,6 +13,9 @@ RSpec.describe User do
     end
     context "without params" do
       it "should create the object" do
+        new_user = User.new
+        expect(new_user.name).to be_nil
+        expect(new_user.last_name).to be_nil
       end
     end
   end
