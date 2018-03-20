@@ -1,6 +1,6 @@
 class Base
   def initialize(at = nil)
-    #yield self if block_given?
+    yield self if block_given?
     assign_attributes(at)
   end
 
@@ -23,4 +23,9 @@ class Base
     public_send(setter, value)
   end
 
+  def method_missing(method_sym, *args, &block)
+    if self.respond_to?(method_sym)
+      method_sym(args.first)
+    end
+  end
 end
