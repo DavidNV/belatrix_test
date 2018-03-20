@@ -17,8 +17,8 @@ class Base
     end
   end
 
-  def _assign_attribute(key, value)
-    setter = :"#{key}="
+  def _assign_attribute(method, value)
+    setter = :"#{method}="
     public_send(setter, value)
   end
 
