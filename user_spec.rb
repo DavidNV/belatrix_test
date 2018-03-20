@@ -12,6 +12,7 @@ RSpec.describe User do
         end
         expect(new_user.name).to eq("David")
         expect(new_user.last_name).to eq("Valderrama")
+        expect(new_user.respond_to?(:another_method)).to be_falsey
       end
     end
     let(:params) { { name: "David", last_name: "Valderrama", another_key: "Hi" } }
@@ -20,6 +21,7 @@ RSpec.describe User do
         new_user = User.new(params)
         expect(new_user.name).to eq("David")
         expect(new_user.last_name).to eq("Valderrama")
+        expect(new_user.respond_to?(:another_method)).to be_falsey
       end
     end
     context "without params" do
