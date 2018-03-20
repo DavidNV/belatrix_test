@@ -7,8 +7,12 @@ RSpec.describe User do
       it "should create the object with the valid attributes" do
       end
     end
+    let(:params) { { name: "David", last_name: "Valderrama", another_key: "Hi" } }
     context "with hash params" do
       it "should create the object with the valid attributes" do
+        new_user = User.new(params)
+        expect(new_user.name).to eq("David")
+        expect(new_user.last_name).to eq("Valderrama")
       end
     end
     context "without params" do
