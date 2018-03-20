@@ -13,7 +13,6 @@ class Base
 
   def _assign_attributes(at)
     at.each do |method, value|
-      next unless respond_to?(method)
       _assign_attribute(method.to_s, value)
     end
   end
